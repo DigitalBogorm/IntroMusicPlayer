@@ -3,6 +3,9 @@
 /*macro definitions of magnetic pin and LED pin*/
 #define MAGNECTIC_SWITCH 33
 #define LED LED_BUILTIN//the on board LED of the Arduino or Seeeduino
+#define RED 22
+#define YLW 21
+#define BLU 17
 
 void setup()
 {
@@ -24,6 +27,9 @@ void pinsInit()
 {
     pinMode(MAGNECTIC_SWITCH, INPUT);
     pinMode(LED,OUTPUT);
+    pinMode(RED, OUTPUT);
+    pinMode(YLW, OUTPUT);
+    pinMode(BLU, OUTPUT);
 }
 
 /*If the magnetic switch is near the magnet, it will return ture, */
@@ -42,9 +48,11 @@ boolean isNearMagnet()
 }
 void turnOnLED()
 {
-    digitalWrite(LED,HIGH);
+    digitalWrite(RED,HIGH);
+    digitalWrite(BLU, LOW);
 }
 void turnOffLED()
 {
-    digitalWrite(LED,LOW);
+    digitalWrite(BLU,HIGH);
+    digitalWrite(RED, LOW);
 }
